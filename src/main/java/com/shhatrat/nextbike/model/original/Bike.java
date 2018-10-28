@@ -1,4 +1,4 @@
-package com.shhatrat.nextbike.model.nextbike;
+package com.shhatrat.nextbike.model.original;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;

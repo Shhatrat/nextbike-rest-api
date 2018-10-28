@@ -1,4 +1,4 @@
-package com.shhatrat.nextbike.model.nextbike;
+package com.shhatrat.nextbike.model.original;
 
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementListUnion;

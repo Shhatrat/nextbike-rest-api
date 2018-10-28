@@ -1,5 +1,6 @@
-package com.shhatrat.nextbike.model.nextbike;
+package com.shhatrat.nextbike.model.original;
 
+import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementListUnion;
 import org.simpleframework.xml.Root;
@@ -14,6 +15,12 @@ public class Country {
     })
     List<City> cityList;
 
+    @Attribute
+    public String name;
+
+    public String getName() {
+        return name;
+    }
 
     public List<City> getCityList() {
         return cityList;

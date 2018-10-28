@@ -8,7 +8,7 @@ import retrofit2.http.Path;
 
 interface ApiEndpoints{
 
-    String URL = "https://api.nextbike.net/maps/";
+    String URL = "https://api.original.net/maps/";
 
     @GET("nextbike-offical.xml")
     Observable<ResponseBody> getAll();
