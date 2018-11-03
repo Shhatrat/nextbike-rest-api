@@ -1,18 +1,21 @@
-package com.shhatrat.nextbike.model.myApi;
+package com.shhatrat.nextbike.model.myApi.city;
 
 import com.shhatrat.nextbike.model.original.City;
 
-public class MCity {
+/**
+ * Minimal data about city
+ */
+public class MinimalCity {
 
     String name;
     Integer uid;
 
-    public MCity(String name, Integer id) {
+    public MinimalCity(String name, Integer id) {
         this.name = name;
         this.uid = id;
     }
 
-    public MCity(City ci) {
+    public MinimalCity(City ci) {
         this.name = ci.getName();
         this.uid = ci.getUid();
     }

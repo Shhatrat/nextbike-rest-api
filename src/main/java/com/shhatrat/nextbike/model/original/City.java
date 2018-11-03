@@ -39,6 +39,13 @@ public class City {
     @Attribute(name = "break", required = false)
     Integer breakNumber;
 
+    public Integer getAvailableBikes() {
+        return availableBikes;
+    }
+
+    @Attribute(name = "available_bikes", required = false)
+    Integer availableBikes;
+
 
     @Attribute(name = "num_places", required = false)
     Integer numPlaces;

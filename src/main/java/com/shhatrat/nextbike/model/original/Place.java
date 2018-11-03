@@ -118,4 +118,23 @@ public class Place {
     public List<Object> getList() {
         return list;
     }
+
+    public static int compareDistance(Place c1, Place c2, Double lat, Double lng){  //todo
+        Place virtualCityOfUserCoordinates = new Place();
+        virtualCityOfUserCoordinates.lat = lat;
+        virtualCityOfUserCoordinates.lng = lng;
+        Double result = (haversineDistance(c1, virtualCityOfUserCoordinates) - haversineDistance(c2, virtualCityOfUserCoordinates));
+        return  result.intValue();
+    }
+
+    public static double haversineDistance(Place pointA, Place pointB) {
+        double deltaLat = Math.toRadians(pointB.lat - pointA.lat);
+        double deltaLong = Math.toRadians(pointB.lng - pointA.lng);
+        double a = Math.pow(Math.sin(deltaLat / 2), 2) + Math.cos(Math.toRadians(pointA.lat)) *
+                Math.cos(Math.toRadians(pointB.lat)) * Math.pow(Math.sin(deltaLong / 2), 2);
+        double greatCircleDistance = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return 3958.761 * greatCircleDistance;
+    }
+
+
 }
