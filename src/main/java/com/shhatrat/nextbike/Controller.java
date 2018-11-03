@@ -2,7 +2,7 @@ package com.shhatrat.nextbike;
 
 import com.shhatrat.nextbike.model.DataHolder;
 import com.shhatrat.nextbike.model.myApi.MCountry;
-import com.shhatrat.nextbike.model.myApi.MInfo;
+import com.shhatrat.nextbike.model.original.Country;
 import io.reactivex.Single;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,4 +45,21 @@ public class Controller {
                 );
     }
 
+    @GetMapping("country/nearest")
+    Single<List<MCountry>> getAllCountries(
+                                           @RequestParam(value = "lat", required = true, defaultValue = "0") double lat,
+                                           @RequestParam(value = "lng", required = true, defaultValue = "0") double lng,
+                                           @RequestParam(value = "items", required = false, defaultValue = "500") int items,
+                                           @RequestParam(value = "skip", required = false, defaultValue = "0") int skip){
+        return   DataHolder
+                .getAllData()
+                .map(m ->
+                        (m.getCountryList().stream()
+                                .sorted((country1, country2) -> Country.compareDistance(country1, country2, lat, lng) )
+                                .map(MCountry::new)
+                                .skip(skip)
+                                .limit(items)
+                        ).collect(Collectors.toList())
+                );
+    }
 }
