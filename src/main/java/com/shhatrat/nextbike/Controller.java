@@ -15,10 +15,6 @@ import java.util.stream.Collectors;
 @RestController
 public class Controller {
 
-    @GetMapping("/hello")
-    MInfo info(){
-        return new MInfo();
-    }
 
 
     @GetMapping("/country/all")

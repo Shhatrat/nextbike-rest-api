@@ -13,4 +13,12 @@ public class MInfo {
         this.description = "Api created by shhatrat";
         this.version = "0.1";
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getVersion() {
+        return version;
+    }
 }
