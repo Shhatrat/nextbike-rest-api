@@ -1,4 +1,4 @@
-package com.shhatrat.nextbike;
+package com.shhatrat.nextbike.controller;
 
 import com.shhatrat.nextbike.model.DataHolder;
 import com.shhatrat.nextbike.model.myApi.MCountry;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-public class Controller {
+public class CountryController {
 
 
 
