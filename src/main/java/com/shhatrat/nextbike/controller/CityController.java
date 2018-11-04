@@ -5,7 +5,6 @@ import com.shhatrat.nextbike.model.myApi.city.FullCity;
 import com.shhatrat.nextbike.model.myApi.city.MinimalCity;
 import com.shhatrat.nextbike.model.myApi.point.MinimalPlace;
 import com.shhatrat.nextbike.model.original.City;
-import com.shhatrat.nextbike.model.original.Country;
 import com.shhatrat.nextbike.model.original.Place;
 import io.reactivex.Single;
 import org.springframework.web.bind.annotation.GetMapping;
