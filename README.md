@@ -93,7 +93,7 @@ response:
 ```{"name":"Lódź","uid":330,"lat":51.7689,"lng":19.4554,"availableBikes":1270,"numPlaces":159}```
 
 
-## Full City
+## Places
 `city/{cityUid}/places` getting places of city. 
 
     `cityUid` - uid of city
