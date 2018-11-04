@@ -1,17 +1,13 @@
 package com.shhatrat.nextbike.model;
 
 import com.shhatrat.nextbike.P;
-import com.shhatrat.nextbike.Util;
 import com.shhatrat.nextbike.api.ApiProvider;
-import com.shhatrat.nextbike.model.original.Country;
+import com.shhatrat.nextbike.model.original.City;
 import com.shhatrat.nextbike.model.original.Marker;
 import io.reactivex.Single;
 import okhttp3.ResponseBody;
 import org.simpleframework.xml.core.Persister;
-import org.springframework.core.io.ClassPathResource;
 
-import java.io.File;
-import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Optional;
@@ -19,7 +15,7 @@ import java.util.Optional;
 public class DataHolder {
 
     private static Optional<P<Date, Marker>> wholeMarker = Optional.empty();
-    private static HashMap<String, P<Date, Marker>> countrySet = new HashMap();
+    private static HashMap<Integer, P<Date, City>> countrySet = new HashMap();
 
 
     public static Single<Marker> getAllData(){
@@ -34,22 +30,32 @@ public class DataHolder {
         }
     }
 
-    static Marker convert(ResponseBody oo) throws  Exception{
-        Marker m = new Persister().read(Marker.class, oo.string());
+    static Marker convert(ResponseBody data) throws  Exception{
+        Marker m = new Persister().read(Marker.class, data.string());
         wholeMarker = Optional.of(new P(new Date(), m));
         return m;
     }
 
-    public static Single<Country> getCountry(String countryName){
+    static City convertCity(ResponseBody oo) {
         try {
-            Persister serializer = new Persister();
-            File xml = new ClassPathResource("nextbike-offical.xml").getFile();
-            Util.readFile(xml.getPath(), Charset.defaultCharset());
-            Marker marker = serializer.read(Marker.class, xml);
-            return Single.just(marker.getCountryList().stream().filter(c -> c.name.equals(countryName)).findFirst().get());
-        }catch (Exception e){
-            return Single.just(new Country());
+            Marker m = new Persister().read(Marker.class, oo.string());
+            City c = m.getCountry().getCity();
+            countrySet.put(c.getUid(), new P(new Date(), c));
+            return c;
+        }catch (Throwable e){
+            return new City();
         }
     }
 
+    public static Single<City> getCity(Integer cityUidName){
+        try {
+            if(countrySet.containsKey(cityUidName)){
+                return Single.just(countrySet.get(cityUidName).getSecond());
+            }else{
+                return ApiProvider.getApi().getCity(cityUidName.toString()).map(DataHolder::convertCity).singleOrError();
+            }
+        }catch (Exception e){
+            return Single.just(new City());
+        }
+    }
 }
