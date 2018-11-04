@@ -1,7 +1,9 @@
 # nextbike-rest-api
 
 Extremally simple restful api of Nextbike services.
+
 Version 0.2 is deployed here:
+
 **http://uw382.mikr.us**
 
 #Endpoints
