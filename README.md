@@ -103,6 +103,10 @@ Optional params:
     `items` - how many items will be returned
 
     `skip` - how many items will be skiped
+    
+    `lat` - latitude of user (for sorting by distance)
+    
+    `lng` - longitude of user (for sorting by distance)
         
 request: http://uw382.mikr.us/city/330/places?items=1&skip=3  
 response:
