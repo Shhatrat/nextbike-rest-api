@@ -10,7 +10,7 @@ public class MInfo {
     }
 
     public MInfo(){
-        this.description = "Api created by shhatrat";
+        this.description = "Api created by Shhatrat. Source: https://github.com/Shhatrat/nextbike-rest-api";
         this.version = "0.2";
     }
 
