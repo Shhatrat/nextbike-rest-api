@@ -2,18 +2,17 @@ package com.shhatrat.nextbike.api;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
-interface ApiEndpoints{
+public interface ApiEndpoints{
 
-    String URL = "https://api.original.net/maps/";
+    String URL = "https://api.nextbike.net/maps/";
 
     @GET("nextbike-offical.xml")
     Observable<ResponseBody> getAll();
 
-    @GET("nextbike-offical.xml?city={city}")
-    Observable<Response<Void>> getCity(
-            @Path("city") String city);
+    @GET("nextbike-offical.xml")
+    Observable<ResponseBody> getCity(
+            @Query("city") String city);
 }
