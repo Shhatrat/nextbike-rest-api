@@ -7,6 +7,8 @@ import org.simpleframework.xml.Root;
 
 import java.util.List;
 
+import static com.shhatrat.nextbike.Util.calculateDistanceBetweenPoints;
+
 @Root(strict = false)
 public class Place {
 
@@ -123,18 +125,8 @@ public class Place {
         Place virtualCityOfUserCoordinates = new Place();
         virtualCityOfUserCoordinates.lat = lat;
         virtualCityOfUserCoordinates.lng = lng;
-        Double result = (haversineDistance(c1, virtualCityOfUserCoordinates) - haversineDistance(c2, virtualCityOfUserCoordinates));
+        Double result = (
+                calculateDistanceBetweenPoints(c2.lat, virtualCityOfUserCoordinates.lat, c2.lng, virtualCityOfUserCoordinates.lng) - calculateDistanceBetweenPoints(c1.lat, virtualCityOfUserCoordinates.lat, c1.lng, virtualCityOfUserCoordinates.lng));
         return  result.intValue();
     }
-
-    public static double haversineDistance(Place pointA, Place pointB) {
-        double deltaLat = Math.toRadians(pointB.lat - pointA.lat);
-        double deltaLong = Math.toRadians(pointB.lng - pointA.lng);
-        double a = Math.pow(Math.sin(deltaLat / 2), 2) + Math.cos(Math.toRadians(pointA.lat)) *
-                Math.cos(Math.toRadians(pointB.lat)) * Math.pow(Math.sin(deltaLong / 2), 2);
-        double greatCircleDistance = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return 3958.761 * greatCircleDistance;
-    }
-
-
 }

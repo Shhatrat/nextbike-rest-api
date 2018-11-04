@@ -1,10 +1,12 @@
 package com.shhatrat.nextbike.model.myApi.city;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.shhatrat.nextbike.model.original.City;
 
 /**
  * Minimal data about city
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MinimalCity {
 
     String name;

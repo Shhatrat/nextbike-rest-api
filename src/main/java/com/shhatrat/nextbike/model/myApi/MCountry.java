@@ -1,11 +1,13 @@
 package com.shhatrat.nextbike.model.myApi;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.shhatrat.nextbike.model.myApi.city.MinimalCity;
 import com.shhatrat.nextbike.model.original.Country;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MCountry {
 
     String name;

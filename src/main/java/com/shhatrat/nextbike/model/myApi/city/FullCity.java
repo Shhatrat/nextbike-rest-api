@@ -1,7 +1,9 @@
 package com.shhatrat.nextbike.model.myApi.city;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.shhatrat.nextbike.model.original.City;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FullCity {
 
     String name;
