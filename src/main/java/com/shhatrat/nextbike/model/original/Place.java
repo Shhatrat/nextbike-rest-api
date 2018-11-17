@@ -125,8 +125,7 @@ public class Place {
         Place virtualCityOfUserCoordinates = new Place();
         virtualCityOfUserCoordinates.lat = lat;
         virtualCityOfUserCoordinates.lng = lng;
-        Double result = (
-                calculateDistanceBetweenPoints(c2.lat, virtualCityOfUserCoordinates.lat, c2.lng, virtualCityOfUserCoordinates.lng) - calculateDistanceBetweenPoints(c1.lat, virtualCityOfUserCoordinates.lat, c1.lng, virtualCityOfUserCoordinates.lng));
-        return  result.intValue();
+        double result = calculateDistanceBetweenPoints(c1.lat, c1.lng, virtualCityOfUserCoordinates.lat, virtualCityOfUserCoordinates.lng) - calculateDistanceBetweenPoints(c2.lat,  c2.lng, virtualCityOfUserCoordinates.lat,  virtualCityOfUserCoordinates.lng);
+        return (int) (result);
     }
 }

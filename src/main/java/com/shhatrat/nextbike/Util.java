@@ -20,7 +20,10 @@ public class Util{
             double y1,
             double x2,
             double y2) {
-        return Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+        double result = Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+        result = result * 10000;
+        System.out.println(result);
+        return result;
     }
 
 }

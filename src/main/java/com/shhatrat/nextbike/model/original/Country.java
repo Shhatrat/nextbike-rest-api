@@ -51,6 +51,6 @@ public class Country {
         Country virtualCityOfUserCoordinates = new Country();
         virtualCityOfUserCoordinates.lat = lat;
         virtualCityOfUserCoordinates.lng = lng;
-        return (int) (calculateDistanceBetweenPoints(c1.lat, virtualCityOfUserCoordinates.lat, c1.lng, virtualCityOfUserCoordinates.lng) - calculateDistanceBetweenPoints(c2.lat, virtualCityOfUserCoordinates.lat, c2.lng, virtualCityOfUserCoordinates.lng));
-        }
+        return (int) (calculateDistanceBetweenPoints(c1.lat, c1.lng, virtualCityOfUserCoordinates.lat, virtualCityOfUserCoordinates.lng) - calculateDistanceBetweenPoints(c2.lat,  c2.lng, virtualCityOfUserCoordinates.lat,  virtualCityOfUserCoordinates.lng));
+    }
 }
