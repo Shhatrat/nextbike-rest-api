@@ -103,11 +103,27 @@ Optional params:
     `items` - how many items will be returned
 
     `skip` - how many items will be skiped
-    
-    `lat` - latitude of user (for sorting by distance)
-    
-    `lng` - longitude of user (for sorting by distance)
-        
+
 request: http://uw382.mikr.us/city/330/places?items=1&skip=3  
+response:
+```[{"uid":"781799","lat":51.762010000258,"lng":19.447292089462,"name":"Żeromskiego / Kopernika","bikes":5,"bikeRacks":15}]```
+
+
+## Nearest places
+`city/{cityUid}/nearestPlaces` getting places of city.
+
+    `cityUid` - uid of city
+
+Optional params:
+
+    `items` - how many items will be returned
+
+    `skip` - how many items will be skiped
+
+    `lat` - latitude of user (for sorting by distance)
+
+    `lng` - longitude of user (for sorting by distance)
+
+request: http://uw382.mikr.us/city/330/nearestPlaces?items=1&skip=3
 response:
 ```[{"uid":"781799","lat":51.762010000258,"lng":19.447292089462,"name":"Żeromskiego / Kopernika","bikes":5,"bikeRacks":15}]```
