@@ -22,7 +22,6 @@ public class Util{
             double y2) {
         double result = Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
         result = result * 10000;
-        System.out.println(result);
         return result;
     }
 
