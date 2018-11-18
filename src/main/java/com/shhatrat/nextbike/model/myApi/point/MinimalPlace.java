@@ -3,12 +3,14 @@ package com.shhatrat.nextbike.model.myApi.point;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.shhatrat.nextbike.model.original.Place;
 
+import static com.shhatrat.nextbike.Util.calculateDistanceBetweenPoints;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MinimalPlace {
 
     String uid;
-    Double lat;
-    Double lng;
+    public Double lat;
+    public Double lng;
     String name;
     Integer bikes;
     Integer bikeRacks;
@@ -69,4 +71,13 @@ public class MinimalPlace {
     public void setBikeRacks(Integer bikeRacks) {
         this.bikeRacks = bikeRacks;
     }
+
+    public static int compareDistance(MinimalPlace c1, MinimalPlace c2, Double lat, Double lng){  //todo
+        Place virtualCityOfUserCoordinates = new Place();
+        virtualCityOfUserCoordinates.lat = lat;
+        virtualCityOfUserCoordinates.lng = lng;
+        double result = calculateDistanceBetweenPoints(c1.lat, c1.lng, virtualCityOfUserCoordinates.lat, virtualCityOfUserCoordinates.lng) - calculateDistanceBetweenPoints(c2.lat,  c2.lng, virtualCityOfUserCoordinates.lat,  virtualCityOfUserCoordinates.lng);
+        return (int) (result);
+    }
+
 }

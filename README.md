@@ -2,7 +2,7 @@
 
 Extremally simple restful api of Nextbike services.
 
-Version 0.2 is deployed here:
+Version 0.3 is deployed here:
 
 **http://uw382.mikr.us**
 
@@ -125,5 +125,29 @@ Optional params:
     `lng` - longitude of user (for sorting by distance)
 
 request: http://uw382.mikr.us/city/330/nearestPlaces?items=1&skip=3
+
 response:
 ```[{"uid":"781799","lat":51.762010000258,"lng":19.447292089462,"name":"Żeromskiego / Kopernika","bikes":5,"bikeRacks":15}]```
+
+
+## Nearest places of cities
+`cities/nearestPlaces` getting places of city. Some "real" cities contains one or more "api cities". For example Lodz (http://uw382.mikr.us/country/%C5%81%C3%B3dzki%20Rower%20Publiczny%20Poland) has two "cities", this situation can be problematic, so this request allows you to find places (bike stations) with sorting by distance from many "cities".
+
+    `city` - uid of city, you can use this paramereters several times
+
+Optional params:
+
+    `items` - how many items will be returned
+
+    `skip` - how many items will be skiped
+
+    `lat` - latitude of user (for sorting by distance)
+
+    `lng` - longitude of user (for sorting by distance)
+
+request: http://uw382.mikr.us/cities/nearestPlaces?lat=51.7494464&lng=19.4014624&city=473&items=2&city=237&skip=30
+
+response:
+```[{"uid":"6269638","lat":55.877822,"lng":-4.254817,"name":"Port Dundas","bikes":4,"bikeRacks":8},{"uid":"264281","lat":55.860727478485,"lng":-4.2586451768875,"name":"Central Station ","bikes":5,"bikeRacks":10}]```
+
+

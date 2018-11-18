@@ -16,9 +16,11 @@ public class Place {
     String uid;
 
     @Attribute
+    public
     Double lat;
 
     @Attribute
+    public
     Double lng;
 
     @Attribute
