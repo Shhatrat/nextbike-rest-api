@@ -6,6 +6,8 @@ Version 0.3 is deployed here:
 
 **http://uw382.mikr.us**
 
+You can use http or https requests.
+
 # Endpoints
 All enpoints are HTTP GET methods.
 
