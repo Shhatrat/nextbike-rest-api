@@ -11,7 +11,7 @@ public class MInfo {
 
     public MInfo(){
         this.description = "Api created by Shhatrat. Source: https://github.com/Shhatrat/nextbike-rest-api";
-        this.version = "0.3";
+        this.version = "0.4";
     }
 
     public String getDescription() {

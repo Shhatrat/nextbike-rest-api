@@ -2,7 +2,7 @@
 
 Extremally simple restful api of Nextbike services.
 
-Version 0.3 is deployed here:
+Version 0.4 is deployed here:
 
 **http://uw382.mikr.us**
 

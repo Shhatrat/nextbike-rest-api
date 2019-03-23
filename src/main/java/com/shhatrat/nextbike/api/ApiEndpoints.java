@@ -9,10 +9,10 @@ public interface ApiEndpoints{
 
     String URL = "https://api.nextbike.net/maps/";
 
-    @GET("nextbike-offical.xml")
+    @GET("nextbike-official.xml")
     Observable<ResponseBody> getAll();
 
-    @GET("nextbike-offical.xml")
+    @GET("nextbike-official.xml")
     Observable<ResponseBody> getCity(
             @Query("city") String city);
 }
